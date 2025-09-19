@@ -4,13 +4,19 @@
 ## Key Findings
 
 
-The analysis shows that **nuclear equities (CCJ, URA, URNM) and merchant utilities (CEG, VST, NRG) are not the same trade**.  
+Using **Principal Component Analysis (PCA)** and a residual z-score screen, the analysis shows that **nuclear equities (CCJ, URA, URNM) and merchant utilities (CEG, VST, NRG) are not the same trade**.  
 
 - PCA separated them into a distinct **“see-saw” factor (PC2):** uranium trades like a **commodity cycle** (supply deficits, policy), while merchant utilities move with **wholesale power market tightness** (ERCOT/PJM prices).  
 
-- The **residual screen flagged URA as rich (+2.9σ)** compared to Cameco and URNM, which screened cheap. This suggests the ETF’s basket effect (smaller uranium names outperforming) pulled URA ahead of the main producer.  
+- The residual screen flagged **URA as rich (+2.9σ)** compared to Cameco and URNM, which screened cheap. This suggests the ETF’s basket effect (smaller uranium names outperforming) pulled URA ahead of the main producer.  
 
+- **Trader lens:** a desk would first hedge out **PC1 (sector beta)**, then consider exposure to **PC2 (uranium vs merchant utilities)**. **PC3** (regulated/renewables) is smaller but policy-sensitive; **PC4** is idiosyncratic and not systematic.
+  
 - **Relative-value lens:** traders could frame this as **short URA vs long Cameco/URNM** to capture a potential convergence, while recognising risks (liquidity, borrow costs, event headlines).  
+
+**Conclusion:**  
+1. Nuclear is emerging as its **own factor**, not just utilities beta.  
+2. Within that theme, ETF vs single-name **mispricings** exist (e.g., short URA vs long Cameco/URNM).
 
 **Why this matters:**  
 Even though uranium ultimately fuels nuclear power (and thus electricity generation), markets are not yet pricing it like merchant utilities. Instead, uranium trades as a **stand-alone commodity theme**, while merchant utilities track power price cycles. That separation means uranium is emerging as its **own factor**, so relative-value trades only make sense after hedging out the shared utilities beta.
