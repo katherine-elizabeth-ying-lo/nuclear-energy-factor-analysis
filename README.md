@@ -77,9 +77,10 @@ Example (latest run):
 <img width="259" height="288" alt="Screen Shot 2025-09-19 at 17 07 35" src="https://github.com/user-attachments/assets/023d8975-23f3-4188-984d-eed92a860f90" />
 
 **Interpretation:**  
-- **URA (+2.9σ)** screened rich. This reflects uranium equities rallying on a structural supply deficit (~35m lbs in 2025), financial buying (SPUT), and policy tailwinds (U.S.–UK partnership, EU taxonomy).  
-- **URNM and CCJ screened cheap** despite being direct uranium exposures, suggesting ETF demand may have run ahead of single-name performance.  
-- **SO (–1.1σ)** cheap vs **CEG/VST (+0.4–0.5σ rich)** fits the merchant vs regulated split. Merchant names benefit when wholesale markets tighten — as seen in ERCOT and PJM during U.S. summer 2025, which lifted VST and CEG earnings — while regulated names lag since their returns are capped by regulators.  
+- **URA (+2.9σ)** screened rich. This reflects uranium equities rallying on a structural supply deficit (~35m lbs in 2025), financial buying (SPUT), and policy tailwinds (U.S.–UK partnership, EU taxonomy). This isn’t from new inflows (1Y flows are –$67.7m) but from uranium equities inside the ETF (Cameco, Oklo, UEC) rallying hard in 2025. 
+- **URNM and CCJ screened cheap** despite being direct uranium exposures, suggesting ETF demand may have run ahead of single-name performance.
+- URA screened rich vs Cameco/URNM. That suggests the ETF’s basket effect — small-cap uranium names rallying hard — pulled the ETF above what the larger producer implied. In relative-value terms, URA looks extended while CCJ/URNM lag, which could justify a **pairs idea: short URA vs long Cameco.**
+- **SO (–1.1σ)** cheap vs **CEG/VST (+0.4–0.5σ rich)** fits the merchant vs regulated split. Merchant names benefit when wholesale markets tighten — as seen in ERCOT and PJM during U.S. summer 2025, which lifted VST and CEG earnings — while regulated names lag since their returns are capped by regulators.
 
 ---
 
