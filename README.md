@@ -16,11 +16,6 @@ The analysis shows that **nuclear equities (CCJ, URA, URNM) and merchant utiliti
 Even though uranium ultimately fuels nuclear power (and thus electricity generation), markets are not yet pricing it like merchant utilities. Instead, uranium trades as a **stand-alone commodity theme**, while merchant utilities track power price cycles. That separation means uranium is emerging as its **own factor**, so relative-value trades only make sense after hedging out the shared utilities beta.
 
 
-
-**Conclusion:**  
-1. Nuclear is now priced as its **own factor**, not just general utilities beta.  
-2. Within that theme, **ETF vs single-name dislocations** exist (URA stretched vs CCJ lagging).  
-
 ---
 
 ## Executive Summary
