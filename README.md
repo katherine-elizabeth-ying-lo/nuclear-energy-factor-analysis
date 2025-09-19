@@ -40,7 +40,6 @@ This mix was chosen to:
 By the fourth PC, ~85% of variance is explained.  
 This suggests most movement is sector-wide, but a distinct **uranium factor** emerges by PC3.  
 
-![Variance explained by PCs](plot_pca_explained.png)
 
 <img width="1200" height="600" alt="plot_pca_explained" src="https://github.com/user-attachments/assets/220cda0f-b573-41fb-be75-4b7e7ff1f55d" />
 
@@ -69,9 +68,9 @@ This suggests uranium ETFs look extended vs Cameco and utilities.
 ---
 
 ## Summary
-- I ran PCA on a nuclear/utility basket, found 4 PCs explain ~85% of variance. PC1 was sector beta, PC3 was a uranium-specific driver.”  
-- I built a residual z-score screen: URA screened rich, CCJ and SO cheap. That’s the kind of RV idea PCA surfaces.”  
-- The project links to real-world context: US-UK nuclear partnerships, uranium pricing, and how traders separate systematic vs idiosyncratic risk.”  
+- I ran PCA on a nuclear/utility basket, found 4 PCs explain ~85% of variance. PC1 was sector beta, PC3 was a uranium-specific driver. 
+- I built a residual z-score screen: URA screened rich, CCJ and SO cheap. That’s the kind of RV idea PCA surfaces.  
+- The project links to real-world context: US-UK nuclear partnerships, uranium pricing, and how traders separate systematic vs idiosyncratic risk.  
 
 ---
 
