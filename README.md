@@ -51,6 +51,12 @@ The first component captures the broad market/sector driver. High loadings on **
 ### PC2 – Uranium vs Merchant Utilities (~19% variance explained)
 The second component emerges as a **see-saw between uranium equities and U.S. merchant utilities**. Uranium names (**CCJ –0.40, URA –0.34, URNM –0.42**) load strongly negative, while merchant utilities (**CEG 0.42, VST 0.48, NRG 0.36**) load strongly positive. Regulated utilities remain near zero, indicating they are not part of this tug-of-war. Economically, this reflects how **uranium trades more like a commodity cycle**, while merchant utilities benefit when wholesale power markets tighten.
 
+**Why?**
+
+- Uranium trades more like a commodity cycle (spot uranium price, supply shocks, mine restarts, policy).
+
+- Merchant utilities make money from selling electricity into wholesale markets → they benefit from power price tightening (like Texas heatwaves, gas price spikes).
+
 As of **August 2025, spot uranium was around $59.58/lb** (not yet $100). Banks such as **Citi** and **Morgan Stanley** have published forecasts that prices could **approach or exceed $100/lb** given tight supply and policy tailwinds, and a Forbes piece (Sept 2025) described uranium as “marching towards $100.” The **2025 U.S.–UK civil nuclear partnership** further reinforced uranium as a distinct investment theme. PC2 therefore isolates a factor that traders actively track: the performance gap between uranium exposures and merchant utilities.
 
 ---
@@ -64,13 +70,16 @@ The third component clusters the regulated and renewables-tilted names: **SO (0.
 The fourth component is narrower, with **CEG (0.72)** and **NRG (–0.63)** showing strong opposing loadings. This looks less like a sector factor and more like an **idiosyncratic spread between two merchant names**. Traders could read this as a statistical justification for **pair-trading Constellation vs NRG**, but it doesn’t carry broad sector interpretation.
 
 ---
-
 ### Residual z-score screen
+The residual screen highlights which names trade rich/cheap versus their factor-implied fair value.  
 Example (latest run):  
-- **Rich:** URA, CEG  
-- **Cheap:** CCJ, SO, URNM  
 
-This suggests uranium ETFs looked extended vs Cameco and regulated utilities at the time of the snapshot.
+<img width="259" height="288" alt="Screen Shot 2025-09-19 at 17 07 35" src="https://github.com/user-attachments/assets/023d8975-23f3-4188-984d-eed92a860f90" />
+
+**Interpretation:**  
+- **URA (+2.9σ)** screened rich. This reflects uranium equities rallying on a structural supply deficit (~35m lbs in 2025), financial buying (SPUT), and policy tailwinds (U.S.–UK partnership, EU taxonomy).  
+- **URNM and CCJ screened cheap** despite being direct uranium exposures, suggesting ETF demand may have run ahead of single-name performance.  
+- **SO (–1.1σ)** cheap vs **CEG/VST (+0.4–0.5σ rich)** fits the merchant vs regulated split. Merchant names benefit when wholesale markets tighten — as seen in ERCOT and PJM during U.S. summer 2025, which lifted VST and CEG earnings — while regulated names lag since their returns are capped by regulators.  
 
 ---
 
