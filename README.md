@@ -42,7 +42,7 @@ This mix was chosen to:
 ---
 
 ## Methodology
-1. **Data collection** – daily adjusted closes via Yahoo Finance (`yfinance`).  
+1. **Data collection** – daily adjusted closes from **Jan 2018 to present**, via Yahoo Finance (`yfinance`).  
 2. **Log returns** – compute daily returns, clean, and standardize.  
 3. **PCA** – run on demeaned returns, retain enough PCs to explain ~80% variance.  
 4. **Residual z-score screen** – rolling 60-day z-scores of residuals.  
