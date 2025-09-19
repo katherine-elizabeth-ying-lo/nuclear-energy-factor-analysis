@@ -3,23 +3,20 @@
 
 ## Key Findings
 
-
 Using **Principal Component Analysis (PCA)** and a residual z-score screen, the analysis shows that **nuclear equities (CCJ, URA, URNM) and merchant utilities (CEG, VST, NRG) are not the same trade**.  
 
-- PCA separated them into a distinct **“see-saw” factor (PC2):** uranium trades like a **commodity cycle** (supply deficits, policy), while merchant utilities move with **wholesale power market tightness** (ERCOT/PJM prices).  
-
-- The residual screen flagged **URA as rich (+2.9σ)** compared to Cameco and URNM, which screened cheap. This suggests the ETF’s basket effect (smaller uranium names outperforming) pulled URA ahead of the main producer.  
-
-- **Trader lens:** a desk would first hedge out **PC1 (sector beta)**, then consider exposure to **PC2 (uranium vs merchant utilities)**. **PC3** (regulated/renewables) is smaller but policy-sensitive; **PC4** is idiosyncratic and not systematic.
-  
-- **Relative-value lens:** traders could frame this as **short URA vs long Cameco/URNM** to capture a potential convergence, while recognising risks (liquidity, borrow costs, event headlines).  
+- **PC2 “see-saw”:** uranium trades like a **commodity cycle** (supply deficits, policy), while merchant utilities move with **wholesale power prices** (ERCOT/PJM).  
+- **Residuals:** URA screened **rich (+2.9σ)** vs Cameco/URNM, suggesting the ETF’s basket effect (smaller uranium names outperforming) pulled it ahead of the main producer.  
+- **Trader lens:** hedge out **PC1 (sector beta)**, then express a view on **PC2**. PC3 is smaller (regulated/renewables), PC4 is idiosyncratic.  
+- **RV idea:** short URA vs long Cameco/URNM as a potential convergence trade (liquidity, borrow costs, events matter).  
 
 **Conclusion:**  
 1. Nuclear is emerging as its **own factor**, not just utilities beta.  
-2. Within that theme, ETF vs single-name **mispricings** exist (e.g., short URA vs long Cameco/URNM).
+2. Within that theme, ETF vs single-name **mispricings** exist.  
 
 **Why this matters:**  
-Even though uranium ultimately fuels nuclear power (and thus electricity generation), markets are not yet pricing it like merchant utilities. Instead, uranium trades as a **stand-alone commodity theme**, while merchant utilities track power price cycles. That separation means uranium is emerging as its **own factor**, so relative-value trades only make sense after hedging out the shared utilities beta.
+Uranium ultimately fuels power generation, but markets are not pricing it like utilities yet. It trades as a **stand-alone commodity theme**, while merchant utilities track power cycles. PCA highlights that separation — and shows where relative-value opportunities can arise once sector beta is hedged out.
+
 
 
 ---
