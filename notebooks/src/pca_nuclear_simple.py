@@ -1,4 +1,3 @@
-
 # pca_nuclear_simple.py
 # ------------------------------------------------------------
 # Purpose: Minimal, interview-ready PCA on a nuclear/utility basket
@@ -11,14 +10,13 @@
 #
 # How to run:
 #   pip install -U yfinance pandas numpy matplotlib scikit-learn scipy
-#   python pca_nuclear_simple.py
+#   python notebooks/src/pca_nuclear_simple.py
 #
 # Files created:
 #   plot_pca_explained.png          # variance explained
 #   loadings.csv                    # PCA loadings (tickers x PCs)
 #   explained_variance.csv          # variance ratio table
 #   residual_latest_zscores.csv     # latest residual z-scores (for signals)
-#   README_PCA_Nuclear_Simple.md    # short doc (also provided separately)
 # ------------------------------------------------------------
 
 import warnings
@@ -35,29 +33,44 @@ from sklearn.decomposition import PCA
 # --------------------------
 
 TICKERS = [
-    "CEG",      # Constellation Energy (US)
-    "VST",      # Vistra (US)
-    "NRG",      # NRG Energy (US)
-    "CCJ",      # Cameco (Canada)
-    "URA",      # Uranium ETF (global)
-    "CNA.L"     # Centrica (UK, London listing)
+    "CEG","VST","NRG","CCJ","URA","URNM",
+    "SO","DUK","NEE","EXC","CNA.L"
 ]
 
 START = "2018-01-01"
 END = None
 VAR_TARGET = 0.80              # Keep PCs to explain ~80% variance
-ROLL = 60                      # Rolling window for residual z-scores (trading lens)
-OUTDIR = "."                   # Current folder
+ROLL = 60                      # Rolling window for residual z-scores
+OUTDIR = "."                   # Save outputs to current folder
 
 # --------------------------
 # 1) Download prices & returns
 # --------------------------
-print("Downloading adjusted closes...")
-px = yf.download(TICKERS, start=START, end=END, auto_adjust=True, progress=False)["Close"]
-px = px.dropna(how="all").dropna(axis=1)
+# --------------------------
+# 1) Download prices & returns
+# --------------------------
+print("Downloading tickers one by one...")
+px_list = []
+for t in TICKERS:
+    df = yf.download(t, start=START, end=END, auto_adjust=True, progress=False)[["Close"]]
+    if not df.empty:
+        px_list.append(df.rename(columns={"Close": t}))
+        print(f"  {t} downloaded")
+    else:
+        print(f"  {t} failed")
+
+if len(px_list) == 0:
+    raise ValueError("No tickers returned any data.")
+
+px = pd.concat(px_list, axis=1)
 tickers_used = list(px.columns)
+print(f"Final ticker set used: {tickers_used}")
+
+
 if len(tickers_used) < 3:
-    raise ValueError("Not enough valid tickers downloaded. Edit TICKERS and try again.")
+    print(f"Warning: only {len(tickers_used)} valid tickers downloaded: {tickers_used}")
+else:
+    print(f"Using {len(tickers_used)} tickers:", tickers_used)
 
 # Daily log returns
 ret = np.log(px).diff().dropna()
@@ -66,7 +79,7 @@ ret = ret.replace([np.inf, -np.inf], np.nan).dropna()
 # --------------------------
 # 2) PCA on demeaned returns
 # --------------------------
-# Demean (no scaling) => PCA on covariance; keeps units consistent
+print("Running PCA...")
 X = ret - ret.mean(0)
 
 pca = PCA()
@@ -91,8 +104,8 @@ explained_table = pd.DataFrame({
     "ExplainedVarianceRatio": explained,
     "CumulativeVariance": cum_expl
 })
-explained_table.to_csv("explained_variance.csv", index=False)
-L.to_csv("loadings.csv")
+explained_table.to_csv(f"{OUTDIR}/explained_variance.csv", index=False)
+L.to_csv(f"{OUTDIR}/loadings.csv")
 
 plt.figure(figsize=(8,4))
 plt.step(range(1, len(explained)+1), cum_expl*100, where="mid")
@@ -101,29 +114,31 @@ plt.title("Cumulative Variance Explained by PCs")
 plt.xlabel("PC #")
 plt.ylabel("Cumulative % Explained")
 plt.tight_layout()
-plt.savefig("plot_pca_explained.png", dpi=150)
+plt.savefig(f"{OUTDIR}/plot_pca_explained.png", dpi=150)
+
+print("Saved: explained_variance.csv, loadings.csv, plot_pca_explained.png")
 
 # --------------------------
 # 4) Simple residual screen (rolling z-score)
 # --------------------------
-# Reconstruct returns using k PCs, compute residuals (idio component)
+print("Building residual z-score screen...")
 X_hat = F.values @ L.values.T
 resid = pd.DataFrame(X.values - X_hat, index=X.index, columns=tickers_used)
 
-# Rolling z-score of residuals: (resid - mean) / std over last ROLL days
+# Rolling z-score of residuals
 z = (resid - resid.rolling(ROLL).mean()) / resid.rolling(ROLL).std()
-latest = z.dropna().iloc[-1].sort_values(ascending=False)  # largest positive = rich; negative = cheap
+latest = z.dropna().iloc[-1].sort_values(ascending=False)
 
 signals = pd.DataFrame({
     "Ticker": latest.index,
     "ResidualZ": latest.values
 }).sort_values("ResidualZ", ascending=False)
 
-signals.to_csv("residual_latest_zscores.csv", index=False)
+signals.to_csv(f"{OUTDIR}/residual_latest_zscores.csv", index=False)
 
 print("\nTop residual z-scores (potential shorts):")
 print(signals.head(3))
 print("\nBottom residual z-scores (potential longs):")
 print(signals.tail(3))
 
-print("\nSaved: plot_pca_explained.png, loadings.csv, explained_variance.csv, residual_latest_zscores.csv")
+print("\nDone. Files saved in current folder.")
