@@ -46,9 +46,6 @@ OUTDIR = "."                   # Save outputs to current folder
 # --------------------------
 # 1) Download prices & returns
 # --------------------------
-# --------------------------
-# 1) Download prices & returns
-# --------------------------
 print("Downloading tickers one by one...")
 px_list = []
 for t in TICKERS:
