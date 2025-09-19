@@ -24,10 +24,6 @@ This mix was chosen to:
 1. **Data collection** – daily adjusted closes via Yahoo Finance (`yfinance`).  
 2. **Log returns** – compute daily returns, clean, and standardize.  
 3. **PCA** – run on demeaned returns, retain enough PCs to explain ~80% variance.  
-   - PC1: sector beta (common driver across all names)  
-   - PC2: regional split (US vs non-US)  
-   - PC3: uranium/nuclear factor (ETF + Cameco)  
-   - PC4+: idiosyncratic company risk (e.g. NextEra renewables tilt, Centrica UK policy)  
 4. **Residual z-score screen** – rolling 60-day z-scores of residuals.  
    - Positive = rich relative to peers → potential short  
    - Negative = cheap relative to peers → potential long  
@@ -38,46 +34,71 @@ This mix was chosen to:
 
 ### Variance Explained by PCs
 By the fourth PC, ~85% of variance is explained.  
-This suggests most movement is sector-wide, but a distinct **uranium factor** emerges by PC3.  
+This suggests most movement is sector-wide, but distinct **uranium** and **regulated-utility** components also emerge.  
 
 
 <img width="1200" height="600" alt="plot_pca_explained" src="https://github.com/user-attachments/assets/220cda0f-b573-41fb-be75-4b7e7ff1f55d" />
 
+<img width="667" height="291" alt="Screen Shot 2025-09-19 at 17 03 11" src="https://github.com/user-attachments/assets/1864b185-6eff-4dce-b906-74eece10c4e4" />
+
+---
+
+### PC1 – Sector Beta (~51% variance explained)
+The first component captures the broad market/sector driver. High loadings on **CEG (0.39), VST (0.44), CCJ (0.46), URA (0.40), and URNM (0.42)** show that both merchant utilities and uranium names swing together under macro and sector conditions. By contrast, regulated names like **SO (0.04), DUK (0.04), CNA.L (0.04)** load only lightly, consistent with their rate-base insulation: regulated utilities pass through fuel costs and earn capped returns, so they are structurally less exposed to commodity volatility. This lines up with policy support such as the U.S. **Inflation Reduction Act’s 45U production credit** for nuclear plants, which further stabilises cashflows. PC1 is thus the “sector wind” lifting most nuclear and utility names, with regulated stocks less sensitive to the tide.
+
+---
+
+### PC2 – Uranium vs Merchant Utilities (~19% variance explained)
+The second component emerges as a **see-saw between uranium equities and U.S. merchant utilities**. Uranium names (**CCJ –0.40, URA –0.34, URNM –0.42**) load strongly negative, while merchant utilities (**CEG 0.42, VST 0.48, NRG 0.36**) load strongly positive. Regulated utilities remain near zero, indicating they are not part of this tug-of-war. Economically, this reflects how **uranium trades more like a commodity cycle**, while merchant utilities benefit when wholesale power markets tighten.
+
+As of **August 2025, spot uranium was around $59.58/lb** (not yet $100). Banks such as **Citi** and **Morgan Stanley** have published forecasts that prices could **approach or exceed $100/lb** given tight supply and policy tailwinds, and a Forbes piece (Sept 2025) described uranium as “marching towards $100.” The **2025 U.S.–UK civil nuclear partnership** further reinforced uranium as a distinct investment theme. PC2 therefore isolates a factor that traders actively track: the performance gap between uranium exposures and merchant utilities.
+
+---
+
+### PC3 – Regulated & Renewables Utilities (~10% variance explained)
+The third component clusters the regulated and renewables-tilted names: **SO (0.43), DUK (0.41), NEE (0.60), EXC (0.45), CNA.L (0.24)**. This is a coherent group of companies whose earnings are **policy-linked and rate-sensitive**. Unlike uranium or merchant names, these stocks move together on regulatory cycles, interest-rate expectations, and renewables investment policy. **NextEra’s outsized loading (0.60)** is consistent with its renewables tilt (via NEER) alongside its regulated Florida utility arm. Similarly, UK utilities like **Centrica** are tied into government policy decisions, with **Sizewell C receiving final investment approval in 2025**. PC3 thus represents a defensive, policy-driven axis distinct from commodity swings — the “regulated/renewables cluster.”
+
+---
+
+### PC4 – Pair-trade Axis (~5% variance explained)
+The fourth component is narrower, with **CEG (0.72)** and **NRG (–0.63)** showing strong opposing loadings. This looks less like a sector factor and more like an **idiosyncratic spread between two merchant names**. Traders could read this as a statistical justification for **pair-trading Constellation vs NRG**, but it doesn’t carry broad sector interpretation.
+
+---
 
 ### Residual z-score screen
 Example (latest run):  
 - **Rich:** URA, CEG  
 - **Cheap:** CCJ, SO, URNM  
 
-This suggests uranium ETFs look extended vs Cameco and utilities.
+This suggests uranium ETFs looked extended vs Cameco and regulated utilities at the time of the snapshot.
 
 ---
 
 ## Why PCA?
-- In markets, PCA helps **strip out beta** (common risk) and focus on **idiosyncratic alpha**.  
-- For nuclear, the question is: *is it just utilities beta, or its own driver?*  
-- PCA shows uranium names form a distinct component, supporting the idea that nuclear is now priced as a **separate theme**.  
+- PCA helps **strip out beta** (common risk) and focus on **idiosyncratic alpha**.  
+- The question here is: *is nuclear just utilities beta, or its own driver?*  
+- The decomposition shows uranium names form a distinct component, supporting the idea that nuclear is now priced as a **separate theme**.
 
 ---
 
 ## Relevance (2025 context)
-- The **US-UK nuclear partnership** and broader “nuclear renaissance” make this question topical.  
-- Utilities and uranium miners are moving in tandem with policy news, but PCA shows uranium is carving out its own factor.  
-- This matters for trading desks: long/short screens can highlight which names are rich or cheap to the “nuclear factor,” not just general utilities.  
+- The **US–UK nuclear partnership** and broader “nuclear renaissance” make this question topical.  
+- Utilities and uranium miners are moving with policy news, but PCA shows uranium is carving out its own factor.  
+- For trading desks, relative-value screens can identify which names are rich or cheap to the **nuclear factor**, not just general utilities beta.
 
 ---
 
 ## Summary
-- I ran PCA on a nuclear/utility basket, found 4 PCs explain ~85% of variance. PC1 was sector beta, PC3 was a uranium-specific driver. 
-- I built a residual z-score screen: URA screened rich, CCJ and SO cheap. That’s the kind of RV idea PCA surfaces.  
-- The project links to real-world context: US-UK nuclear partnerships, uranium pricing, and how traders separate systematic vs idiosyncratic risk.  
+- PCA on a nuclear/utility basket finds four components explaining ~85% of variance.  
+- **PC1:** sector beta; **PC2:** uranium vs merchant utilities; **PC3:** regulated/renewables cluster; **PC4:** pair-trade spread.  
+- A residual z-score screen highlights potential relative-value ideas after neutralising the main factors.
 
 ---
 
 ## Next steps
 - Add **EWMA volatility scaling** or risk-parity weights.  
-- Run **rolling PCA** to test stability of nuclear as a factor.  
-- Overlay **event filters** (e.g., UK policy, uranium supply news).  
+- Run **rolling PCA** to test factor stability through time.  
+- Overlay **event filters** (e.g., UK policy, uranium supply news).
 
 ---
 
