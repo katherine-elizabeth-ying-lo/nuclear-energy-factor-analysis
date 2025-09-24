@@ -64,7 +64,7 @@ This suggests most movement is sector-wide, but distinct **uranium** and **regul
 
 ---
 
-### PC1 – Sector Beta (~51% variance explained)
+### PC1 – Broad power/energy beta (~51% variance explained)
 The first component captures the broad market/sector driver. High loadings on **CEG (0.39), VST (0.44), CCJ (0.46), URA (0.40), and URNM (0.42)** show that both merchant utilities and uranium names swing together under macro and sector conditions. By contrast, regulated names like **SO (0.04), DUK (0.04), CNA.L (0.04)** load only lightly, consistent with their rate-base insulation: regulated utilities pass through fuel costs and earn capped returns, so they are structurally less exposed to commodity volatility. This lines up with policy support such as the U.S. **Inflation Reduction Act’s 45U production credit** for nuclear plants, which further stabilises cashflows. PC1 is thus the “sector wind” lifting most nuclear and utility names, with regulated stocks less sensitive to the tide.
 
 ---
